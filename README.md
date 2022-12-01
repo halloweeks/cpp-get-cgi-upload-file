@@ -1,1 +1,3 @@
-# CGI-Upload-binary-file
+```
+g++ upload.cpp -o upload.cgi
+```

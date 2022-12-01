@@ -7,20 +7,20 @@ int main(int argc, char* argv[]) {
   size_t len = 0;
   ssize_t BytesSize = 0;
   
-  unsigned long long i = 0;
-  
   std::cout << "Content-Type: text/html\r\n\r\n";
   
-  std::ofstream OutputFile("/sdcard/file.out", std::ios::binary);
+  std::ofstream OutputFile("dat.out", std::ios::binary);
   
+  if (OutputFile) {
+     std::cout << "Failed to open output file";
+     return -1;
+  }
+
   while ((BytesSize = getline(&line, &len, stdin)) != -1) {
-    i = i + BytesSize;
     OutputFile.write(line, BytesSize);
   }
   
   OutputFile.close();
-  
-  std::cout << "Bytes: " << i << "\n";
   
   return 0;
 }

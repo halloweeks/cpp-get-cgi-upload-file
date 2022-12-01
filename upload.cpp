@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
   
   std::ofstream OutputFile("dat.out", std::ios::binary);
   
-  if (OutputFile) {
+  if (!OutputFile) {
      std::cout << "Failed to open output file";
      return -1;
   }
